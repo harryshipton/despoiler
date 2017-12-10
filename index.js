@@ -1,4 +1,19 @@
 (function() {
+  function getUrlParameter(sParam) {
+    let sPageURL = window.location.search.substring(1);
+    let sURLVariables = sPageURL.split('&');
+    let sParameterName;
+    let i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+      sParameterName = sURLVariables[i].split('=');
+
+      if (decodeURIComponent(sParameterName[0]) === sParam) {
+        return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+      }
+    }
+  }
+  
   let characterString = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
   let cArr = characterString.split('');
   let option = false;
@@ -38,6 +53,7 @@
     input = pRot(input, 1);
     input = pRot(input, input.length % cArr.length);
     input = lRot(input, 1);
+    $('#shareURL').val('https://spoil-it-for.me/?characterMap=' + encodeUriComponent(characterString) + "&show=" + encodeUriComponent(input));
     return input;
   }
   
@@ -46,6 +62,7 @@
     input = pRot(input, (-1 * input.length) % cArr.length);
     input = pRot(input, -1);
     input = sRot(input, true);
+    $('#shareURL').val('https://spoil-it-for.me/?characterMap=' + encodeUriComponent(characterString) + "&hide=" + encodeUriComponent(input));
     return input;
   }
   
@@ -71,5 +88,18 @@
   
   $(document).ready(function() {
     $('select').material_select();
+    let characterMix = getUrlParameter('characterMix');
+    if(characterMix && characterMix !== true) {
+      $('#characterMix').val(characterMix);
+    }
+    let reveal = getUrlParameter('reveal');
+    let hide = getUrlParameter('hide');
+    if(reveal && reveal !== true) {
+      $('#optSel').prop('selectedIndex', 1);
+      $('#inTA').val(reveal);
+    } else if(hide && hide !== true) {
+      $('#optSel').prop('selectedIndex', 0);
+      $('#outTA').val(hide);
+    }
   });
 })();
