@@ -8,7 +8,7 @@
     let oArr = iArr.map(function(e) {
       let eI = cArr.indexOf(e);
       if(eI < 0) return e;
-      return cArr[(eI + (roundUp ? Math.ceil(cArr.length/2) : Math.floor(cArr.length/2)) % cArr.length];
+      return cArr[(eI + (roundUp ? Math.ceil(cArr.length/2) : Math.floor(cArr.length/2))) % cArr.length];
     });
     return oArr.join('');
   }
