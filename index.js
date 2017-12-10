@@ -53,7 +53,7 @@
     input = pRot(input, 1);
     input = pRot(input, input.length % cArr.length);
     input = lRot(input, 1);
-    $('#shareURL').val('https://spoil-it-for.me/?characterMap=' + encodeUriComponent(characterString) + "&show=" + encodeUriComponent(input));
+    $('#shareURL').val('https://spoil-it-for.me/?characterMap=' + encodeURIComponent(characterString) + "&show=" + encodeURIComponent(input));
     return input;
   }
   
@@ -62,7 +62,7 @@
     input = pRot(input, (-1 * input.length) % cArr.length);
     input = pRot(input, -1);
     input = sRot(input, true);
-    $('#shareURL').val('https://spoil-it-for.me/?characterMap=' + encodeUriComponent(characterString) + "&hide=" + encodeUriComponent(input));
+    $('#shareURL').val('https://spoil-it-for.me/?characterMap=' + encodeURIComponent(characterString) + "&hide=" + encodeURIComponent(input));
     return input;
   }
   
