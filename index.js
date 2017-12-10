@@ -18,7 +18,7 @@
     let oArr = iArr.map(function(e, i) {
       let eI = cArr.indexOf(e);
       if(eI < 0) return e;
-      return cArr[(eI + i*modifier) % cArr.length];
+      return cArr[(eI + i*modifier + cArr.length) % cArr.length];
     });
     return oArr.join('');
   }
