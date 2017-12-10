@@ -23,7 +23,7 @@
     return oArr.join('');
   }
   
-  lRot(input, modifier) {
+  function lRot(input, modifier) {
     let iArr = input.split('');
     let oArr = iArr.map(function(e) {
       let eI = cArr.indexOf(e);
