@@ -18,7 +18,7 @@
     let oArr = iArr.map(function(e, i) {
       let eI = cArr.indexOf(e);
       if(eI < 0) return e;
-      return cArr[(eI + i) % cArr.length];
+      return cArr[(eI + i*modifier) % cArr.length];
     });
     return oArr.join('');
   }
@@ -36,7 +36,6 @@
   }
   
   function modify(input) {
-    console.log(option);
     $('#outTA').val(option ? reveal(input) : obfuscate(input));
   }
   
