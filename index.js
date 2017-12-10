@@ -49,4 +49,8 @@
   $('#inTA').bind('input propertychange', function(e) {
     modify($('#inTA').val());
   });
+  
+  $(document).ready(function() {
+    $('select').material_select();
+  });
 })();
