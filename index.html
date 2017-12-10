@@ -9,14 +9,26 @@
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
   </head>
   <body>
-    <select id="optSel">
-      <option value="hide">Hide spoiler</option>
-      <option value="reveal">Reveal spoiler</option>
-    </select>
-    <br><hr>
-    <textarea id="inTA" rows="4" cols="30"></textarea>
-    <br>
-    <textarea id="outTA" rows="4" cols="30" readonly></textarea>
+    <div class="container">
+      <div class="row">
+        <div class="input-field col s12">
+          <select id="optSel">
+            <option value="hide">Hide spoiler</option>
+            <option value="reveal">Reveal spoiler</option>
+          </select>
+          <label>Obfuscate/deobfuscate</label>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col m6 s12">
+          <textarea id="inTA" class="materialize-textarea"></textarea>
+        </div>
+        <div class="col m6 s12">
+          <textarea id="outTA" class="materialize-textarea" readonly></textarea>
+        <div>
+          </div>
+    </div>
     
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
