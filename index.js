@@ -53,7 +53,7 @@
     $('#outTA').val(option ? reveal(input) : obfuscate(input));
   }
   
-  $('#characterMix').change(function(e) {
+  $('#characterMix').bind('input propertychange', function(e) {
     characterString = $('#characterMix').val();
     cArr = characterString.split('');
     modify($('#inTA').val());
