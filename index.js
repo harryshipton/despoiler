@@ -42,8 +42,10 @@
   $('#optSel').change('change', function(e) {
     let selOpt = $('option:selected', this);
     option = selOpt[0].value === 'reveal';
+    console.log(option);
     modify($('#inTA').val());
   });
+  
   $('#inTA').bind('input propertychange', function(e) {
     modify($('#inTA').val());
   });
