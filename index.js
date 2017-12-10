@@ -18,7 +18,7 @@
     let oArr = iArr.map(function(e, i) {
       let eI = cArr.indexOf(e);
       if(eI < 0) return e;
-      return cArr[(eI + i*modifier + cArr.length) % cArr.length];
+      return cArr[(eI + i*(modifier + cArr.length)) % cArr.length];
     });
     return oArr.join('');
   }
@@ -28,7 +28,7 @@
     let oArr = iArr.map(function(e) {
       let eI = cArr.indexOf(e);
       if(eI < 0) return e;
-      return cArr[(eI + iArr.length*modifier + cArr.length) % cArr.length];
+      return cArr[(eI + iArr.length*(modifier + cArr.length)) % cArr.length];
     });
     return oArr.join('');
   }
@@ -43,6 +43,7 @@
   
   function reveal(input) {
     input = lRot(input, -1);
+    console.log(input);
     input = pRot(input, (-1 * input.length) % cArr.length);
     input = pRot(input, -1);
     input = sRot(input);
