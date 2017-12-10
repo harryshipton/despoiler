@@ -9,7 +9,7 @@
       let eI = cArr.indexOf(e);
       if(eI < 0) return e;
       return cArr[(eI + cArr.length/2) % cArr.length];
-    }
+    });
     return oArr.join('');
   }
   
