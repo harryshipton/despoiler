@@ -3,12 +3,12 @@
   const cArr = characterString.split('');
   let option = false;
   
-  function sRot(input) {
+  function sRot(input, roundUp) {
     let iArr = input.split('');
     let oArr = iArr.map(function(e) {
       let eI = cArr.indexOf(e);
       if(eI < 0) return e;
-      return cArr[(eI + cArr.length/2) % cArr.length];
+      return cArr[(eI + (roundUp ? Math.ceil(cArr.length/2) : Math.floor(cArr.length/2)) % cArr.length];
     });
     return oArr.join('');
   }
@@ -34,7 +34,7 @@
   }
   
   function obfuscate(input) {
-    input = sRot(input);
+    input = sRot(input, false);
     input = pRot(input, 1);
     input = pRot(input, input.length % cArr.length);
     input = lRot(input, 1);
@@ -43,10 +43,9 @@
   
   function reveal(input) {
     input = lRot(input, -1);
-    console.log(input);
     input = pRot(input, (-1 * input.length) % cArr.length);
     input = pRot(input, -1);
-    input = sRot(input);
+    input = sRot(input, true);
     return input;
   }
   
