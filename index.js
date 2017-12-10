@@ -13,13 +13,25 @@
     return oArr.join('');
   }
   
+  function pRot(input, modifier) {
+    let iArr = input.split('');
+    let oArr = iArr.map(function(e, i) {
+      let eI = eI = cArr.indexOf(e);
+      if(eI < 0) return e;
+      return cArr[(eI + i) % cArr.length];
+    });
+    return oArr.join('');
+  }
+  
   function obfuscate(input) {
     input = sRot(input);
+    input = pRot(input, 1);
     return input;
   }
   
   function reveal(input) {
     input = sRot(input);
+    input = pRot(input, -1);
     return input;
   }
   
