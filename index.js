@@ -1,6 +1,6 @@
 (function() {
-  const characterString = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-  const cArr = characterString.split('');
+  let characterString = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  let cArr = characterString.split('');
   let option = false;
   
   function sRot(input, roundUp) {
@@ -53,7 +53,12 @@
     $('#outTA').val(option ? reveal(input) : obfuscate(input));
   }
   
-  $('#optSel').change('change', function(e) {
+  $('#characterMix').change(function(e) {
+    characterString = $('#characterMix').val();
+    cArr = characterString.split('');
+  });
+  
+  $('#optSel').change(function(e) {
     let selOpt = $('option:selected', this);
     option = selOpt[0].value === 'reveal';
     console.log(option);
