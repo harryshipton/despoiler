@@ -16,7 +16,7 @@
   function pRot(input, modifier) {
     let iArr = input.split('');
     let oArr = iArr.map(function(e, i) {
-      let eI = eI = cArr.indexOf(e);
+      let eI = cArr.indexOf(e);
       if(eI < 0) return e;
       return cArr[(eI + i) % cArr.length];
     });
