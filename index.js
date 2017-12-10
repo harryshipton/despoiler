@@ -56,12 +56,12 @@
   $('#characterMix').change(function(e) {
     characterString = $('#characterMix').val();
     cArr = characterString.split('');
+    modify($('#inTA').val());
   });
   
   $('#optSel').change(function(e) {
     let selOpt = $('option:selected', this);
     option = selOpt[0].value === 'reveal';
-    console.log(option);
     modify($('#inTA').val());
   });
   
