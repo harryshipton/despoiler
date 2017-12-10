@@ -33,7 +33,6 @@
     modify($('#inTA').val());
   });
   $('#inTA').bind('input propertychange', function(e) {
-    console.log(e);
     modify($('#inTA').val());
   });
 })();
