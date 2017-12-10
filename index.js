@@ -23,13 +23,27 @@
     return oArr.join('');
   }
   
+  lRot(input, modifier) {
+    let iArr = input.split('');
+    let oArr = iArr.map(function(e) {
+      let eI = cArr.indexOf(e);
+      if(eI < 0) return e;
+      return cArr[(eI + iArr.length*modifier + cArr.length) % cArr.length];
+    });
+    return oArr.join('');
+  }
+  
   function obfuscate(input) {
     input = sRot(input);
     input = pRot(input, 1);
+    input = pRot(input, input.length % cArr.length);
+    input = lRot(input, 1);
     return input;
   }
   
   function reveal(input) {
+    input = lRot(input, -1);
+    input = pRot(input, (-1 * input.length) % cArr.length);
     input = pRot(input, -1);
     input = sRot(input);
     return input;
