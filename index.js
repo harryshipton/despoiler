@@ -24,15 +24,15 @@
   }
   
   function modify(input) {
-    $('#outTA').value = option ? reveal(input) : obfuscate(input);
+    $('#outTA').val(option ? reveal(input) : obfuscate(input));
   }
   
   $('#optSel').change('change', function(e) {
     let selOpt = $('option:selected', this);
     option = selOpt[0].value === 'reveal';
-    modify($('#inTA').value);
+    modify($('#inTA').val());
   });
   $('#inTA').bind('input propertychange', function(e) {
-    modify(this.value);
+    modify(this.val());
   });
 })();
