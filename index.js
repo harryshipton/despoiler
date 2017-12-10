@@ -30,12 +30,13 @@
   }
   
   function reveal(input) {
-    input = sRot(input);
     input = pRot(input, -1);
+    input = sRot(input);
     return input;
   }
   
   function modify(input) {
+    console.log(option);
     $('#outTA').val(option ? reveal(input) : obfuscate(input));
   }
   
