@@ -53,7 +53,7 @@
     let oArr = iArr.map(function(e, i) {
       let eI = cArr.indexOf(e);
       if(eI < 0) return e;
-      return cArr[(modifier * (Math.pow(eI + iArr.length*(i+1)*cArr.length, 2) % cArr.length)) % cArr.length];
+      return cArr[((modifier + cArr.length) * Math.pow(eI + iArr.length*(i+1)*cArr.length, 2)) % cArr.length];
     });
     return oArr.join('');
   }
