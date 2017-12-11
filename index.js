@@ -53,7 +53,6 @@
     let oArr = iArr.map(function(e, i) {
       let eI = cArr.indexOf(e);
       if(eI < 0) return e;
-      console.log(modifier, cArr.length, Math.pow(eI + iArr.length*(i+1)*cArr.length, 2));
       return cArr[(eI + (modifier + cArr.length)*(iArr.length - i + 1)) % cArr.length];
     });
     return oArr.join('');
@@ -64,13 +63,13 @@
     input = pRot(input, 1);
     input = pRot(input, input.length % cArr.length);
     input = lRot(input, 1);
-    input = cRot(input, 1);
+    input = rRot(input, 1);
     $('#shareURL').val('https://spoil-it-for.me/?characterMap=' + encodeURIComponent(characterString) + "&reveal=" + encodeURIComponent(input));
     return input;
   }
   
   function reveal(input) {
-    input = cRot(input, -1);
+    input = rRot(input, -1);
     input = lRot(input, -1);
     input = pRot(input, (-1 * input.length) % cArr.length);
     input = pRot(input, -1);
