@@ -48,13 +48,13 @@
     return oArr.join('');
   }
   
-  function cRot(input, modifier) {
+  function rRot(input, modifier) {
     let iArr = input.split('');
     let oArr = iArr.map(function(e, i) {
       let eI = cArr.indexOf(e);
       if(eI < 0) return e;
       console.log(modifier, cArr.length, Math.pow(eI + iArr.length*(i+1)*cArr.length, 2));
-      return cArr[(eI + (modifier + cArr.length)*(Math.pow(iArr.length*(i+1)*(cArr.length+1), 2) + Math.pow(iArr.length - i + 1, 2))) % cArr.length];
+      return cArr[(eI + (modifier + cArr.length)*(iArr.length - i + 1)) % cArr.length];
     });
     return oArr.join('');
   }
