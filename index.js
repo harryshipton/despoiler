@@ -48,16 +48,28 @@
     return oArr.join('');
   }
   
+  function cRot(input, modifier) {
+    let iArr = input.split('');
+    let oArr = iArr.map(function(e, i) {
+      let eI = cArr.indexOf(e);
+      if(eI < 0) return e;
+      return cArr[Math.pow(eI + iArr.length*(i+1)*(modifier + cArr.length), 2) % cArr.length];
+    });
+    return oArr.join('');
+  }
+  
   function obfuscate(input) {
     input = sRot(input, false);
     input = pRot(input, 1);
     input = pRot(input, input.length % cArr.length);
     input = lRot(input, 1);
+    input = cRot(input, 1);
     $('#shareURL').val('https://spoil-it-for.me/?characterMap=' + encodeURIComponent(characterString) + "&reveal=" + encodeURIComponent(input));
     return input;
   }
   
   function reveal(input) {
+    input = cRot(input, -1);
     input = lRot(input, -1);
     input = pRot(input, (-1 * input.length) % cArr.length);
     input = pRot(input, -1);
