@@ -95,10 +95,10 @@
     let reveal = getUrlParameter('reveal');
     let hide = getUrlParameter('hide');
     if(reveal && reveal !== true) {
-      $('#optSel').prop('selectedIndex', 1);
+      $('#optSel').val('reveal');
       $('#inTA').val(reveal);
     } else if(hide && hide !== true) {
-      $('#optSel').prop('selectedIndex', 0);
+      $('#optSel').val('hide');
       $('#inTA').val(hide);
     }
   });
