@@ -33,7 +33,7 @@
     let oArr = iArr.map(function(e, i) {
       let eI = cArr.indexOf(e);
       if(eI < 0) return e;
-      return cArr[(eI + i*(modifier + cArr.length)) % cArr.length];
+      return cArr[(eI + (modifier + cArr.length)*Math.pow(i, 2)) % cArr.length];
     });
     return oArr.join('');
   }
@@ -43,7 +43,7 @@
     let oArr = iArr.map(function(e) {
       let eI = cArr.indexOf(e);
       if(eI < 0) return e;
-      return cArr[(eI + iArr.length*(modifier + cArr.length)) % cArr.length];
+      return cArr[(eI + (modifier + cArr.length)*iArr.length) % cArr.length];
     });
     return oArr.join('');
   }
@@ -53,7 +53,7 @@
     let oArr = iArr.map(function(e, i) {
       let eI = cArr.indexOf(e);
       if(eI < 0) return e;
-      return cArr[(eI + (modifier + cArr.length)*(iArr.length - i + 1)) % cArr.length];
+      return cArr[(eI + (modifier + cArr.length)*Math.pow(iArr.length - i + 1, 2)) % cArr.length];
     });
     return oArr.join('');
   }
