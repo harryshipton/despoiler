@@ -87,7 +87,6 @@
   });
   
   $(document).ready(function() {
-    $('select').material_select();
     let characterMix = getUrlParameter('characterMix');
     if(characterMix && characterMix !== true) {
       $('#characterMix').val(characterMix);
@@ -101,5 +100,15 @@
       $('#optSel').val('hide');
       $('#inTA').val(hide);
     }
+    
+    let selOpt = $('option:selected', this);
+    option = selOpt[0].value === 'reveal';
+    
+    characterString = $('#characterMix').val();
+    cArr = characterString.split('');
+    
+    modify($('#inTA').val());
+    
+    $('select').material_select();
   });
 })();
