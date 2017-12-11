@@ -53,7 +53,7 @@
     input = pRot(input, 1);
     input = pRot(input, input.length % cArr.length);
     input = lRot(input, 1);
-    $('#shareURL').val('https://spoil-it-for.me/?characterMap=' + encodeURIComponent(characterString) + "&show=" + encodeURIComponent(input));
+    $('#shareURL').val('https://spoil-it-for.me/?characterMap=' + encodeURIComponent(characterString) + "&reveal=" + encodeURIComponent(input));
     return input;
   }
   
@@ -99,7 +99,7 @@
       $('#inTA').val(reveal);
     } else if(hide && hide !== true) {
       $('#optSel').prop('selectedIndex', 0);
-      $('#outTA').val(hide);
+      $('#inTA').val(hide);
     }
   });
 })();
